@@ -13,7 +13,7 @@ const client = new Client({
 });
 
 const TOKEN = process.env.TOKEN
-const GOOGLE_API_URL = "https://script.google.com/macros/s/AKfycbw1QIDQPtq9WsoAj_e5Si-6OBh8EINl51giqdFr-TiMO-YaPCcdgasEvsG8gFyl6mAf/exec";
+const GOOGLE_API_URL = process.env.GOOGLE_SECRET;
 const PREFIX = "/";
 
 client.on("ready", () => {
@@ -103,3 +103,4 @@ client.on("messageCreate", async message => {
 
 
 client.login(TOKEN);
+
