@@ -33,7 +33,10 @@ async function getUserIdFromUsername(username) {
 // Send to Google Sheet
 async function sendToGoogle(userId) {
     try {
-        await axios.post(GOOGLE_API_URL, { userId });
+        await axios.post(GOOGLE_API_URL, {
+    userId: userId,
+    secret: process.env.GOOGLE_SECRET
+});
     } catch (err) {
         console.error("Failed to send to Google:", err);
     }
@@ -97,5 +100,6 @@ client.on("messageCreate", async message => {
         }, duration);
     }
 });
+
 
 client.login(TOKEN);
